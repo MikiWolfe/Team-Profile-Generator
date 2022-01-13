@@ -1,0 +1,1 @@
+const manager = require("C:/Users/mklaw/Desktop/BootCampClassWork/Team-Profile-Generator/manager")

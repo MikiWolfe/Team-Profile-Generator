@@ -1,4 +1,9 @@
+const inquirer =require('inquirer');
+const fs =  require('fs');
+
 const employees = [];
+
+
 // manager, engineer, interns 
 
 
@@ -40,3 +45,11 @@ const employees = [];
 
 // Use all of the collected employee data to build an HTML page.
 
+async function askForManagerInfo(){
+
+    const data = await inquirer.prompt(
+        employees.push( new Manager ())
+        // askForNextAction()
+        
+    )
+}
