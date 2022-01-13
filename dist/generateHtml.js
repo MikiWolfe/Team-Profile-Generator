@@ -1,3 +1,6 @@
+
+function generateHtml()
+{return `
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,13 +17,13 @@
     <section>
       <div class="container">
         <div class="card">
-          <h3>Name<br />Posistion</h3>
+          <h3>${manager.name}<br />Manager</h3>
           <div class="text">
-            <p>ID:</p>
+            <p>ID: ${manager.id}:</p>
             <br />
-            <p>Email:</p>
+            <p>Email: ${manager.email}:</p>
             <br />
-            <p>Contact</p>
+            <p>Phone Number: ${$manager.phone} </p>
           </div>
         </div>
       </div>
@@ -53,3 +56,4 @@
     </section>
   </body>
 </html>
+`}
