@@ -1,14 +1,44 @@
-const Employee = require('../lib/employee')
+const Employee = require('../lib/Employee');
 
-describe("Employee", () =>{
+describe( "Employee", () =>{
+ describe( 'intialization / constructor', ()=>{
+     it( "should build with prop x when give y", () => 
+     {
+    const e = new Employee();
+    expect(typeof(e)).toBe(Object)
+     })
+ })
 
+describe("getName" , () =>{
 
-    // methods
-describe("getName")
-// Arrange 
-// Create a new Employee object 
+    it("should return name", () =>{
+        const name = Karen
+        const e = new Employee (name)
+        expect(e.name).toBe(name)
+    })
+})
+describe("getID" , () =>{
+    
+ it("should return ID", () =>{
+     const id = 5
+     const e = new Employee (id)
+     expect(e.id).toBe(id)
+ })
+    })
+describe("getEmail" , () =>{
+       
+     it("should set emial with constructor arguements", () =>{
+         const email = testEmail
+         const e =new Employee (email);
+         expect(e.email).toBe(email)
+     })
+    })
 
-// Act 
-// Call the getName method 
+ describe("getRole", () =>{
+           
+ it("should return 'Employee;", () =>{
+    const 
+ })        
+    })
 
 })
