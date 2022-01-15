@@ -1,25 +1,10 @@
 const inquirer =require('inquirer');
 const fs =  require('fs');
+const Manager =require('./lib/Manager');
+const Engineer =require('./lib/Engineer');
+const Intern =require('./lib/Intern');
 // const { generateHtml } = require('./template')
-const teamProfile = [];
-
-// action needed:
-
-// ask them for MANAGER info 
-
-    // prompt the user for data
-
-        // THEN creat and store an object for the manager
-
-        // THEN "ask what they would like to do next"
-
-// ask them for ENGINEER info
-
-    // prompt the user for the data 
-    
-        // THEN create and store an object for the engineer
-
-        // THEN "ask what they would like to do next"
+const teamMate = [];
 
 // ask them for INTERN info
 
@@ -41,7 +26,7 @@ const teamProfile = [];
 
 // Use all of the collected employee data to build an HTML page.
 
-const managerQuestions = 
+function buildTeam(){
 
 console.log("Welcome to our team profile generator! Please follow these instuctions:")
 inquirer
@@ -64,32 +49,33 @@ inquirer
 {
     type: "input",
     message: "Enter a phone number for a manager",
-    name: "phone"
-},
-{
-    type: "list",
-    name:"next",
-    message: "Who would you like to add next?",
-    choices:["Engingeer", "Intern", "Be done"]
+    name: "officeNumber"
 },
 ])
-async function askForManagerInfo(){
+.then(data => {
+    console.log(data)
+    let { name , id , email , officeNumber } = data;
+    console.log(data)
 
-    const data = await inquirer.prompt(
-        employees.push( new Manager ())
-        // askForNextAction()
-        
-    )
+    let manager = new Manager(name, id, email, officeNumber); 
+    teamMate.push(manager);
+}) 
 }
-console.log(teamProfile)
-
-// const engineerQuestions =[
+console.log.teamMate
+// function askForNextAction() {
+//     inquirer
+//     .prompt([
+//         {
+//             type: "list",
+//             name:"next",
+//             message: "Who would you like to add next?",
+//             choices:["Engingeer", "Intern", "Be done"]
+//         },
 //     {
 //         type: "input",
 //         message: "Enter in an name for an engineer:",
 //         name: "name"
 //     },
-
 //     {
 //         type: "input",
 //         message : "enter a ID number for the engineer",
@@ -111,15 +97,14 @@ console.log(teamProfile)
 //     message: "Who would you like to add next?",
 //     choices:["Engingeer", "Intern", "Be done"]
 // },
-// ]
-
+// ])
+// }
 // const internQuestions =[
 //     {
 //         type: "input",
 //         message: "Enter in an name for an intern:",
 //         name: "name"
 //     },
-
 //     {
 //         type: "input",
 //         message : "enter a ID number for the inter",
@@ -144,4 +129,4 @@ console.log(teamProfile)
 // ]
 
 
-askForManagerInfo()
+buildTeam()
