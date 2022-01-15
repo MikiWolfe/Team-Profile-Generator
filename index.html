@@ -1,10 +1,3 @@
-const Employee = require("../lib/Employee")
-const Manager = require("../lib/Manager");
-const Engineer = require("../lib/Engineer");
-const Intern = require("../lib/Intern");
-
-const generateHtml = (data) =>
-`
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,7 +14,7 @@ const generateHtml = (data) =>
     <section>
       <div class="container">
         <div class="card">
-          <h3>${data.name}</h3>
+          <h3>${Manager.name}</h3>
           <h3>${getRole()}</h3>
           <div class="text">
             <p>ID: ${Manager.id}:</p>
@@ -64,6 +57,3 @@ const generateHtml = (data) =>
     </section>
   </body>
 </html>
-`
-
-module.exports =generateHtml
