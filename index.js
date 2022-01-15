@@ -1,11 +1,7 @@
 const inquirer =require('inquirer');
 const fs =  require('fs');
-const { generateHtml } = require('./template')
-const employees = [];
-
-
-// manager, engineer, interns 
-
+// const { generateHtml } = require('./template')
+const teamProfile = [];
 
 // action needed:
 
@@ -47,8 +43,8 @@ const employees = [];
 
 const managerQuestions = 
 
-inquierer
 console.log("Welcome to our team profile generator! Please follow these instuctions:")
+inquirer
 .prompt([
 {
     type :"input",
@@ -57,78 +53,26 @@ console.log("Welcome to our team profile generator! Please follow these instucti
 },
 {
     type: "input",
-    message: "enter a ID number for the manager",
+    message: "Enter a ID number for the manager",
     name: "id"
 },
 {
     type : "input",
-    message: "enter an email for the manager",
+    message: "Enter an email for the manager",
     name: "email"
 },
 {
     type: "input",
-    message: "enter a phone number for a manager",
+    message: "Enter a phone number for a manager",
     name: "phone"
 },
 {
     type: "list",
-    name:"",
-    message: "",
-    choices: ""
+    name:"next",
+    message: "Who would you like to add next?",
+    choices:["Engingeer", "Intern", "Be done"]
 },
 ])
-
-
-const engineerQuestions =[
-    {
-        type: "input",
-        message: "Enter in an name for an engineer:",
-        name: "name"
-    },
-
-    {
-        type: "input",
-        message : "enter a ID number for the engineer",
-        name: "id"
-    },
-    {
-        type : "input",
-        message: "enter an email for the engineer",
-        name: "email"
-    },
-    {
-        type: "input",
-        message: "enter a gitHub username for the engineer",
-        name: "github"
-    }
-]
-
-const internQuestions =[
-    {
-        type: "input",
-        message: "Enter in an name for an intern:",
-        name: "name"
-    },
-
-    {
-        type: "input",
-        message : "enter a ID number for the inter",
-        name: "id"
-    },
-    {
-        type : "input",
-        message: "enter an email for the intern",
-        name: "email"
-    },
-    {
-        type: "input",
-        message: "enter a school for the intern",
-        name: "school"
-    }
-]
-
-
-
 async function askForManagerInfo(){
 
     const data = await inquirer.prompt(
@@ -137,3 +81,67 @@ async function askForManagerInfo(){
         
     )
 }
+console.log(teamProfile)
+
+// const engineerQuestions =[
+//     {
+//         type: "input",
+//         message: "Enter in an name for an engineer:",
+//         name: "name"
+//     },
+
+//     {
+//         type: "input",
+//         message : "enter a ID number for the engineer",
+//         name: "id"
+//     },
+//     {
+//         type : "input",
+//         message: "enter an email for the engineer",
+//         name: "email"
+//     },
+//     {
+//         type: "input",
+//         message: "enter a gitHub username for the engineer",
+//         name: "github"
+//     },
+// {
+//     type: "list",
+//     name:"next",
+//     message: "Who would you like to add next?",
+//     choices:["Engingeer", "Intern", "Be done"]
+// },
+// ]
+
+// const internQuestions =[
+//     {
+//         type: "input",
+//         message: "Enter in an name for an intern:",
+//         name: "name"
+//     },
+
+//     {
+//         type: "input",
+//         message : "enter a ID number for the inter",
+//         name: "id"
+//     },
+//     {
+//         type : "input",
+//         message: "enter an email for the intern",
+//         name: "email"
+//     },
+//     {
+//         type: "input",
+//         message: "enter a school for the intern",
+//         name: "school"
+//     },
+// {
+    //     type: "list",
+    //     name:"next",
+    //     message: "Who would you like to add next?",
+    //     choices:["Engingeer", "Intern", "Be done"]
+    // },
+// ]
+
+
+askForManagerInfo()

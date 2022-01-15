@@ -27,7 +27,7 @@ describe("getID" , () =>{
     })
 describe("getEmail" , () =>{
        
-     it("should set emial with constructor arguements", () =>{
+     it("should return email", () =>{
          const email = testEmail
          const e =new Employee (email);
          expect(e.email).toBe(email)
@@ -37,7 +37,7 @@ describe("getEmail" , () =>{
  describe("getRole", () =>{
            
  it("should return 'Employee;", () =>{
-    const 
+    (expect (return "Employee"))
  })        
     })
 
