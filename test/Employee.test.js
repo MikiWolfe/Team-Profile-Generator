@@ -15,14 +15,14 @@ describe("getName", () => {
   it("should return name", () => {
     const name = "Beth";
     const e = new Employee("Beth");
-    expect(e.name).toBe(name);
+    expect(e.name).toEqual(name);
   });
 });
 describe("getId", () => {
   it("should return id", () => {
     const id = 2;
     const e = new Employee("Beth", 2);
-    expect(e.id).toBe(id);
+    expect(e.id).toEqual(id);
   });
 });
 
@@ -30,7 +30,7 @@ describe("getEmail", () => {
   it("should retun email", () => {
     const email = "test@email.com";
     const e = new Employee("Beth", 2, email);
-    expect(e.email).toBe(email);
+    expect(e.email).toEqual(email);
   });
 });
 
@@ -38,6 +38,6 @@ describe("getRole", () => {
   it("should return 'Employee;", () => {
     const role = "Employee";
     const e = new Employee("Beth", 2, "test@email.com");
-    expect(e.getRole()).toBe(role);
+    expect(e.getRole()).toEqual(role);
   });
 });
