@@ -1,5 +1,6 @@
 const Employee = require('../lib/Employee');
 
+
 describe( "Employee", () =>{
  describe( 'intialization / constructor', ()=>{
      it( "should build with prop x when give y", () => 
@@ -28,7 +29,7 @@ describe("getID" , () =>{
 describe("getEmail" , () =>{
        
      it("should return email", () =>{
-         const email = testEmail
+         const email = 'test@Email.com'
          const e =new Employee (email);
          expect(e.email).toBe(email)
      })
@@ -37,7 +38,7 @@ describe("getEmail" , () =>{
  describe("getRole", () =>{
            
  it("should return 'Employee;", () =>{
-    (expect (return "Employee"))
+    const role = "Employee"
  })        
     })
 

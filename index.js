@@ -4,7 +4,8 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Employee = require("./lib/Employee");
-const generateHtml = require('./dist/generateHtml');
+const generateHtml = require('./src/generateHtml');
+const console = require("console");
 const teamMate = [];
 
 function buildTeam() {
@@ -15,27 +16,27 @@ function buildTeam() {
     .prompt([
       {
         type: "input",
-        message: "Enter a name for the manager",
+        message: "Enter the name of the manager:",
         name: "name",
       },
       {
         type: "input",
-        message: "Enter a ID number for the manager",
+        message: "Enter a ID number for the manager:",
         name: "id",
       },
       {
         type: "input",
-        message: "Enter an email for the manager",
+        message: "Enter an email for the manager:",
         name: "email",
       },
       {
         type: "input",
-        message: "Enter a phone number for a manager",
+        message: "Enter the office phone number of the manager:",
         name: "officeNumber",
       },
     ])
     .then((data) => {
-      let { name, id, email, officeNumber } = data;
+      let {name, id, email, officeNumber} = data;
       let manager = new Manager(name, id, email, officeNumber);
       teamMate.push(manager);
       askForNextAction();
@@ -54,13 +55,15 @@ function askForNextAction() {
     .then((data) => {
       statement = data.next;
       switch (statement) {
+
         case "Engineer":
           addEngineer();
           break;
+
         case "Intern":
           addIntern();
-
           break;
+
         case "Team complete":
           addTeam();
           break;
@@ -72,22 +75,22 @@ function addEngineer() {
     .prompt([
       {
         type: "input",
-        message: "Enter in a name for an engineer:",
+        message: "Enter the name of the engineer:",
         name: "name",
       },
       {
         type: "input",
-        message: "enter an ID number for the engineer",
+        message: "Enter an ID number for the engineer:",
         name: "id",
       },
       {
         type: "input",
-        message: "enter an email for the engineer",
+        message: "Enter an email for the engineer:",
         name: "email",
       },
       {
         type: "input",
-        message: "enter a gitHub username for the engineer",
+        message: "Enter a gitHub username for the engineer:",
         name: "github",
       },
     ])
@@ -104,22 +107,22 @@ function addIntern() {
     .prompt([
       {
         type: "input",
-        message: "Enter in a name for an intern:",
+        message: "Enter the name of the intern:",
         name: "name",
       },
       {
         type: "input",
-        message: "enter an ID number for the intern",
+        message: "Enter an ID number for the intern:",
         name: "id",
       },
       {
         type: "input",
-        message: "enter an email for the intern",
+        message: "Enter an email for the intern:",
         name: "email",
       },
       {
         type: "input",
-        message: "enter a school for the intern",
+        message: "Enter a school for the intern:",
         name: "school",
       },
     ])
@@ -127,18 +130,18 @@ function addIntern() {
       let { name, id, email, school } = data;
       let intern = new Intern(name, id, email, school);
       teamMate.push(intern);
-
+      askForNextAction();
     });
 }
+buildTeam();
 
 function addTeam() {
 
- fs.writeFileSync("test.html", generateHtml(teamMate)) 
-  .then(() => console.log("HTML has been generated."))
-  .catch((err) => console.error(err))
+ fs.writeFileSync("test.html", generateHtml(teamMate))
+  
+  
 }
 
-buildTeam();
 
 // TODO: Saving this for later:
 // async function askForManagerInfo() {
