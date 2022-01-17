@@ -7,25 +7,8 @@ describe("Employee", () => {
 expect(e.name).toEqual("Beth")
 expect(e.id).toEqual(2)
 expect(e.email).toEqual("test@email.com")
-    //   expect(typeof e).toBe(Object);
-
-    });
-    it("should set name with constructor arguments ", () => {
-      const name = "Beth";
-      const e = new Employee(name);
-      expect(e.name).toBe(name);
     });
 
-    it("should set ID with constructor arguments ", () => {
-      const id = 2;
-      const e = new Employee("Beth", id);
-      expect(e.id).toBe(id);
-    });
-    it("should set email with constructor arguments", () => {
-      const email = "test@Email.com";
-      const e = new Employee("Beth", 2, email);
-      expect(e.email).toBe(email);
-    });
   });
 });
 describe("getName", () => {
