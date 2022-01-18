@@ -1,12 +1,16 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const path = require('path');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Employee = require("./lib/Employee");
 const generateHtml = require('./src/generateHtml');
 const console = require("console");
-const teamMate = [];
+const { captureRejections } = require("events");
+
+let output = path.resolve(__dirname, "output", "team.html")
+const teamMates = [];
 
 function buildTeam() {
   console.log(
@@ -38,7 +42,7 @@ function buildTeam() {
     .then((data) => {
       let {name, id, email, officeNumber} = data;
       let manager = new Manager(name, id, email, officeNumber);
-      teamMate.push(manager);
+      teamMates.push(manager);
       askForNextAction();
     });
 }
@@ -97,7 +101,7 @@ function addEngineer() {
     .then((data) => {
       let { name, id, email, github } = data;
       let engineer = new Engineer(name, id, email, github);
-      teamMate.push(engineer);
+      teamMates.push(engineer);
       askForNextAction();
     });
 }
@@ -129,37 +133,17 @@ function addIntern() {
     .then((data) => {
       let { name, id, email, school } = data;
       let intern = new Intern(name, id, email, school);
-      teamMate.push(intern);
+      teamMates.push(intern);
       askForNextAction();
     });
 }
 buildTeam();
 
-function addTeam() {
-
- fs.writeFileSync("test.html", generateHtml(teamMate))
-  
+async function addTeam() {
+try{
+ fs.writeFileSync(output, generateHtml(teamMates), 'utf-8')}
+  catch(error){
+    console.log(error)
+  }
   
 }
-
-
-// TODO: Saving this for later:
-// async function askForManagerInfo() {
-
-//     try {
-
-//     const data = await inquirer
-//     .prompt
-//     (questionsMan)
-//          console.log(data);
-
-//         employees.push( new Manager(data)
-//         )
-
-//         menu();
-
-//     }
-//     catch (error) {
-//         console.log(error);
-//     }
-// }
