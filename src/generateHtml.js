@@ -1,12 +1,5 @@
-const Manager = require("../lib/Manager");
-const Engineer = require("../lib/Engineer");
-const Intern = require("../lib/Intern");
-const Employee = require("../lib/Employee");
-
-
-
 function generateHtml(teamMate) {
-loop(teamMate);
+
 return `
 
 <!DOCTYPE html>
@@ -22,55 +15,72 @@ return `
   <body>
     <h1>My Team</h1>
 
-  <section>
-  
-<div class="container">
-<div class="card">
-  <h3>${managerName}</h3>
-    <h3>${getRole(teamMate)}</h3>
-   <div class="text">
-       <p>ID: ${id}</p>
-      <br />
-      <p>Email: ${email}</p>
-     <br />
-     <p>Office phone:${getOfficeNumber(teamMate)} </p>
-     </div>
-     </div>
-     </div>
-
-     <div class="container">
-<div class="card">
-  <h3>${managerName}</h3>
-    <h3>${getRole(teamMate)}</h3>
-   <div class="text">
-       <p>ID: ${id}</p>
-      <br />
-      <p>Email: ${email}</p>
-     <br />
-     <p>Office phone:${getOfficeNumber(teamMate)} </p>
-     </div>
-     </div>
-     </div>
-     
+  <section${cardstogohere}>
+       
      </section>
      </body>
      </html>
      `
     }
-    function loop (teamMate){
-        for(let i = 0; i < teamMate.length; i++){
-            // const element = teamMate[i]
-            let managerName = teamMate[i].name
-            
-            
-            let id = teamMate[i].id
-            let email = teamMate[i].email
-            //     <a class="link" href="https://github.com/${gitHub}" target="_blank">GitHub</a>
-            //   <p> School: ${school}</p>
-            // let phone = getOfficeNumber(teamMate[i])
-            // let gitHub =getGithub(teamMate[i])
-    // let school = getSchool(teamMate[i])
-  }
-  }
+ 
+ 
+//  Manager card:
+ `
+  <div class="container">
+<div class="card">
+  <h3>${manager.name}</h3>
+    <h3>${manager.role}</h3>
+   <div class="text">
+       <p>ID: ${manager.id}</p>
+      <br />
+      <a class="link" href="mailto: ${manager.email}"> Email</a>
+     <br />
+     <p>Office phone:${officeNumber} </p>
+     </div>
+     </div>
+     </div>
+ 
+ `
+// Engineer card:
+`
+<div class="container">
+<div class="card">
+  <h3>${engineer.name}</h3>
+    <h3>${engineer.role}</h3>
+   <div class="text">
+       <p>ID: ${engineer.id}</p>
+      <br />
+      <a class="link" href="mailto: ${engineer.email}"> Email</a>
+     <br />
+     <a href="https://github.com/${engineer.github}" target="_blank">Github</a>
+     </div>
+     </div>
+     </div>
+`
+// Intern card:
+`
+<div class="container">
+<div class="card">
+  <h3>${intern.name}</h3>
+    <h3>${role}</h3>
+   <div class="text">
+       <p>ID: ${intern.id}</p>
+      <br />
+      <a class="link" href="mailto: ${intern.email}"> Email</a>
+     <br />
+     <p>School:${intern.school} </p>
+     </div>
+     </div>
+     </div>
+`
+
+
+    // filter fuction 
+const render = (teamMate) => { 
+  const html = [];
+html
+  
+}    
+
 
 module.exports =  generateHtml

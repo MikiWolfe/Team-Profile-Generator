@@ -4,11 +4,10 @@ describe("Employee", () => {
   describe("intialization / constructor", () => {
     it("should build with prop x when give y", () => {
       const e = new Employee("Beth", 2, "test@email.com");
-expect(e.name).toEqual("Beth")
-expect(e.id).toEqual(2)
-expect(e.email).toEqual("test@email.com")
+      expect(e.name).toEqual("Beth");
+      expect(e.id).toEqual(2);
+      expect(e.email).toEqual("test@email.com");
     });
-
   });
 });
 describe("getName", () => {
