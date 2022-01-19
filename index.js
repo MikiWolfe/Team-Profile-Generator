@@ -4,11 +4,9 @@ const path = require('path');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const Employee = require("./lib/Employee");
 const generateHtml = require('./src/generateHtml');
-const console = require("console");
 
-let output = path.resolve(__dirname, "output", "team.html")
+let output = path.resolve(__dirname, "dist", "team.html")
 const teamMates = [];
 
 function buildTeam() {
