@@ -45,5 +45,5 @@ GitHub profile: https://github.com/MikiWolfe
 Link to the repo: https://github.com/MikiWolfe/Team-Profile-Generator
 ### Image of application
 Link to a screenshot of the application: https://raw.githubusercontent.com/MikiWolfe/Team-Profile-Generator/main/screenshot.png
-## Video of application
+### Video of application
 Link to video of application in action: 
