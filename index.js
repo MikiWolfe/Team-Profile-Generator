@@ -5,14 +5,13 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const generateHtml = require('./src/generateHtml');
-const { match } = require("assert");
 
 let output = path.resolve(__dirname, "dist", "team.html")
 const teamMates = [];
 
 function buildTeam() {
   console.log(
-    "Welcome to our team profile generator! Please follow these instuctions:"
+    "🚀 Welcome to our team profile generator! Please follow these instuctions: 🚀"
   );
   inquirer
     .prompt([
