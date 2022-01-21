@@ -6,7 +6,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const generateHtml = require('./src/generateHtml');
 
-let output = path.resolve(__dirname, "dist", "team.html")
+let output = path.resolve(__dirname, "dist", "test.html")
 const teamMates = [];
 
 function buildTeam() {
@@ -20,7 +20,8 @@ function buildTeam() {
         message: "Enter the name of the manager:",
         name: "name",
         validate: async (input) => {
-          if (input == "" || (/[0-9]/g).test(input)){
+          if (input == ""){ 
+            // || (/[0-9]/g).this(input)
             return "Please enter a valid name"
           }
           return true
@@ -33,7 +34,8 @@ function buildTeam() {
         validate: async (input) => {
           if (input == ""){
             return "Please enter a valid id"
-      }  return true
+      }  
+      return true
     }
   },
       {
@@ -43,7 +45,8 @@ function buildTeam() {
       validate: async (input) => {
         if (input == ""){
           return "Please enter a valid email"
-    }  return true
+    }  
+    return true
   }
       },
       {
@@ -51,9 +54,10 @@ function buildTeam() {
         message: "Enter the office phone number of the manager:",
         name: "officeNumber",
         validate: async (input) => {
-          if (input == ""|| (/[^0-9]/g).test(input)){
+          if (input == ""){
             return "Please enter a valid phone number"
-      }  return true
+      }  
+      return true
     }
       },
     ])
@@ -113,7 +117,8 @@ function addEngineer() {
         validate: async (input) => {
           if (input == ""){
             return "Please enter a valid id"
-      }  return true
+      } 
+       return true
     }
       },
       {
@@ -123,7 +128,8 @@ function addEngineer() {
         validate: async (input) => {
           if (input == ""){
             return "Please enter a valid email"
-      }  return true
+      }  
+      return true
     }
         
       },
@@ -134,7 +140,8 @@ function addEngineer() {
         validate: async (input) => {
           if (input == ""){
             return "Please enter a valid gitHub"
-      }  return true
+      }  
+      return true
     }
       },
     ])
@@ -167,7 +174,8 @@ function addIntern() {
         validate: async (input) => {
           if (input == ""){
             return "Please enter a valid id"
-      }  return true
+      }  
+      return true
     }
       },
       {
@@ -177,7 +185,8 @@ function addIntern() {
         validate: async (input) => {
           if (input == ""){
             return "Please enter a valid email"
-      }  return true
+      }
+        return true
     }
       },
       {
@@ -187,7 +196,8 @@ function addIntern() {
         validate: async (input) => {
           if (input == ""){
             return "Please enter a valid school"
-      }  return true
+      }  
+      return true
     }
       },
     ])
@@ -203,7 +213,7 @@ buildTeam();
 function addTeam() {
 
  fs.writeFileSync(output, generateHtml(teamMates), 'utf-8')
-  return "HTML has been generated."
+  console.log( "🚀 HTML has been generated 🚀" )
   }
   
 
