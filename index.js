@@ -5,12 +5,16 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const generateHtml = require('./src/generateHtml');
+let output = path.resolve(__dirname, "dist", "team.html")
 
-let output = path.resolve(__dirname, "dist", "test.html")
+const cyan =  "\x1b[36m"
+const magenta ="\x1b[35m"
+const green = "\x1b[32m"
+
 const teamMates = [];
 
 function buildTeam() {
-  console.log(
+  console.log(cyan ,
     "🚀 Welcome to our team profile generator! Please follow these instuctions: 🚀"
   );
   inquirer
@@ -55,7 +59,7 @@ function buildTeam() {
         name: "officeNumber",
         validate: async (input) => {
           if (input == ""){
-            return "Please enter a valid phone number"
+            return red, "Please enter a valid phone number"
       }  
       return true
     }
@@ -65,6 +69,7 @@ function buildTeam() {
       let {name, id, email, officeNumber} = data;
       let manager = new Manager(name, id, email, officeNumber);
       teamMates.push(manager);
+      console.log(green, "Manager profile created!")
       askForNextAction();
     });
 }
@@ -149,6 +154,7 @@ function addEngineer() {
       let { name, id, email, github } = data;
       let engineer = new Engineer(name, id, email, github);
       teamMates.push(engineer);
+      console.log(green, "Engineer profile created!")
       askForNextAction();
     });
 }
@@ -205,6 +211,7 @@ function addIntern() {
       let { name, id, email, school } = data;
       let intern = new Intern(name, id, email, school);
       teamMates.push(intern);
+      console.log(green, "Intern profile created!")
       askForNextAction();
     });
 }
@@ -213,7 +220,7 @@ buildTeam();
 function addTeam() {
 
  fs.writeFileSync(output, generateHtml(teamMates), 'utf-8')
-  console.log( "🚀 HTML has been generated 🚀" )
+  console.log(magenta,  "🚀 HTML has been generated 🚀" )
   }
   
 

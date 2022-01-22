@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 
+
 const insertValue = (template, field, value) => {
   return template.replaceAll(`{{ ${field} }}`, value)
 }
