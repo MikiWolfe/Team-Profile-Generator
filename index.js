@@ -25,8 +25,7 @@ function buildTeam() {
         name: "name",
         validate: async (input) => {
           if (input == ""){ 
-            // || (/[0-9]/g).this(input)
-            return "Please enter a valid name"
+          return "Please enter a valid name"
           }
           return true
         }
